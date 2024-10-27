@@ -14,7 +14,12 @@ return {
                 "lua",
                 "bash",
                 "vim",
-                "vimdoc"
+                "vimdoc",
+                "rust",
+                "python",
+                "go",
+                "typescript",
+                "cpp",
             },
             indent = {
                 enable = true,

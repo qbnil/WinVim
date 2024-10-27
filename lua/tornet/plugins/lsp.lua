@@ -79,6 +79,15 @@ return {
                         capabilities = capabilities,
                     })
                 end,
+                ["rust_analyzer"] = function()
+                    lspconfig.rust_analyzer.setup({
+                        capabilities = capabilities,
+                        -- root_dir = vim.fn.expand("%s:h"),
+                        -- init_options = { detachedFiles = { vim.api.nvim_buf_get_name(0) } },
+                        -- filetypes = { "rust" },
+                        -- name = "rust_analyzer-standalone",
+                    })
+                end,
                 -- ["arduino_language_server"] = function()
                     -- 	lspconfig.arduino_language_server.setup({
                         -- 		capabilities = capabilities,
