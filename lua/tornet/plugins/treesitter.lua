@@ -20,6 +20,7 @@ return {
                 "go",
                 "typescript",
                 "cpp",
+                "java",
             },
             indent = {
                 enable = true,

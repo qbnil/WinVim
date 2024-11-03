@@ -5,7 +5,7 @@ return {
         require('telescope').setup({
             defaults = {
                 file_ignore_patterns = {
-                    "node_modules", "Hardware", '.git',  '.local',  '.cache',  '.android',  'undodir',  '.npm', '.mozilla',  '.codeium',  'systemd', 'libreoffice',  'xournalpp',  '.gnupg',  'gtk-2.0',  'gtk-3.0',  'mps-youtube',  'skypeforlinux',  'spotify', '.pki',  'mps',  'youtube-viewer',  'dconf',  'tpm',  '.Xauthority',  '.cargo',  '.rustup',  'venv',  'functions',  'vscode-php-debug', '.symfony5',  'fonts',  'VirtualBox',  '.icons',  '.themes',  'Images', 'tmux-resurrect',  'misc',  'chromium', 'ranger',  '.nvm',  'discord',  'vesktop',  '.anydesk',  'Pictures',  '.steam',
+                    "node_modules", "Hardware", '.git',  '.local',  '.cache',  '.android',  'undodir',  '.npm', '.mozilla',  '.codeium',  'systemd', 'libreoffice',  'xournalpp',  '.gnupg',  'gtk-2.0',  'gtk-3.0',  'mps-youtube',  'skypeforlinux',  'spotify', '.pki',  'mps',  'youtube-viewer',  'dconf',  'tpm',  '.Xauthority',  '.cargo',  '.rustup',  'venv',  'functions',  'vscode-php-debug', '.symfony5',  'fonts',  'VirtualBox',  '.icons',  '.themes',  'Images', 'tmux-resurrect',  'misc',  'chromium', 'ranger',  '.nvm',  'discord',  'vesktop',  '.anydesk',  'Pictures',  '.steam', 'go/pkg',
                 },
             }
         })

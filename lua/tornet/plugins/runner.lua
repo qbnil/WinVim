@@ -10,7 +10,7 @@ return {
                     "javac $fileName &&",
                     "java $fileNameWithoutExt",
                 },
-                python = "python",
+                python = "python3",
                 javascript = "node",
                 typescript = "deno run",
                 rust = {
@@ -22,7 +22,12 @@ return {
                 bash = "bash -c",
                 cplus = {
                     "cd $dir &&",
-                    "g++ $fileName -o $fileNameWithoutExt &&",
+                    "gcc $fileName -lm -o $fileNameWithoutExt &&",
+                    "./$fileNameWithoutExt",
+                },
+                c = {
+                    "cd $dir &&",
+                    "gcc $fileName -lm -o $fileNameWithoutExt &&",
                     "./$fileNameWithoutExt",
                 },
                 go = {
