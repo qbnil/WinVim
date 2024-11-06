@@ -34,7 +34,10 @@ return {
                         nvim_lua = "[Lua]",
                     }
                     item.menu = menu_icon[entry.source.name]
-                    return item
+                    local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, item)
+                    local strings = vim.split(kind.kind, "%s", { trimempty = true })
+                    kind.kind = " " .. (strings[1] or "") .. " "
+                    return item, kind
                 end,
             },
             sources = {

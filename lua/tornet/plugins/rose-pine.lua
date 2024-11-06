@@ -5,8 +5,8 @@ return {
         enabled = true,
         -- ft = { 'lua' },
         -- keys = {
-            --     { "<leader>Tr", 'colorscheme rose-pine-main' },
-            -- },
+        --     { "<leader>Tr", 'colorscheme rose-pine-main' },
+        -- },
         name = 'rose-pine',
         opts = {
             disable_background = true,
@@ -31,7 +31,20 @@ return {
                 StatusLineTermNC = { bg = '#262626', fg = '#8787aa' },
                 FzfLuaPreviewTitle = { bg = 'none' },
                 NormalFloat = { bg = 'none' },
-                NormalNC = { bg = 'none' }
+                NormalNC = { bg = 'none' },
+                Keyword = { fg = '#588971' },
+                String = { fg = '#FAC7AA' },
+                ['@function'] = { fg = '#C15965' },
+                Function = { fg = '#BF5866' },
+                ['@constant.macro'] = { fg = '#BF5866' },
+                ['@property'] = { fg = '#AAD2C5' },
+                ['@keyword.conditional'] = { fg = "#588971" },
+                ['@keyword.return'] = { fg = "#588971" },
+                ['@keyword.import'] = { fg = "#588971" },
+                ['@keyword.exception'] = { fg = "#588971" },
+                ['@keyword.repeat'] = { fg = "#588971" },
+                Pmenu = { bg = '#2c2a2c' },
+                PmenuSel = { bg = "#343234" }
             },
         },
         config = function(_, opts)
@@ -51,5 +64,52 @@ return {
             })
             vim.cmd[[colorscheme tokyonight-night]]
         end
-    }
+    },
+    {
+        "bluz71/vim-moonfly-colors",
+        name = "moonfly",
+        lazy = false,
+        enabled = false,
+        priority = 1000,
+        config = function()
+            vim.cmd[[colorscheme moonfly]]
+        end
+    },
+    {
+        'rockerBOO/boo-colorscheme-nvim',
+        lazy = false,
+        enabled = false,
+        config = function()
+            require('boo-colorscheme').setup({
+                italic = true, -- toggle italics
+            })
+            vim.cmd[[colorscheme sunset_cloud]]
+            -- vim.cmd[[colorscheme radioactive_waste]]
+            -- vim.cmd[[colorscheme forest_stream]]
+            -- vim.cmd[[colorscheme crimson_moonlight]]
+        end
+    },
+    {
+        'kdheepak/monochrome.nvim',
+        lazy = false,
+        enabled = false,
+        config = function ()
+            vim.cmd 'colorscheme monochrome'
+        end
+    },
+    {
+        "zenbones-theme/zenbones.nvim",
+        -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+        -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+        -- In Vim, compat mode is turned on as Lush only works in Neovim.
+        dependencies = "rktjmp/lush.nvim",
+        lazy = false,
+        enabled = false,
+        priority = 1000,
+        -- you can set set configuration options here
+        config = function ()
+            vim.g.zenbones_darken_comments = 55
+            vim.cmd.colorscheme('zenbones')
+        end
+    },
 }

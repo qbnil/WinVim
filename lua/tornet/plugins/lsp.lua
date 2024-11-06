@@ -25,7 +25,7 @@ return {
                 "lua_ls",
                 "denols",
                 "clangd",
-                "pylsp",
+                "pyright",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -89,6 +89,15 @@ return {
             border = _border,
         }
 
+        for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+            local default_diagnostic_handler = vim.lsp.handlers[method]
+            vim.lsp.handlers[method] = function(err, result, context, config)
+                if err ~= nil and err.code == -32802 then
+                    return
+                end
+                return default_diagnostic_handler(err, result, context, config)
+            end
+        end
 
         -- Mappings
         local opts = { noremap = true, silent = true }
