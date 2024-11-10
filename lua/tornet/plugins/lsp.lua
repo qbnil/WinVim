@@ -7,11 +7,13 @@ return {
         "williamboman/mason-lspconfig.nvim",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "j-hui/fidget.nvim",
     },
     config = function()
         local lspconfig = require("lspconfig")
         local cmp_lsp = require("cmp_nvim_lsp")
         local lsp_info_ui = require("lspconfig.ui.windows")
+        local util = require "lspconfig/util"
         local capabilities = vim.tbl_deep_extend(
             "force",
             {},
@@ -19,6 +21,7 @@ return {
             cmp_lsp.default_capabilities()
         )
         capabilities.textDocument.completion.completionItem.snippetSupport = true
+        require("fidget").setup({})
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
@@ -57,6 +60,23 @@ return {
                         filetypes = { "php" },
                     })
                 end,
+                ["rust_analyzer"] = function ()
+                    lspconfig.rust_analyzer.setup({
+                        capabilities = capabilities,
+                        filetypes = { "rust" },
+                        root_dir = util.root_pattern("Cargo.toml"),
+                        checkOnSave = {
+                            command = "clippy"
+                        },
+                        settings = {
+                            ['rust_analyzer'] = {
+                                cargo = {
+                                    allFeatures = true,
+                                }
+                            }
+                        },
+                    })
+                end
             },
         })
 
